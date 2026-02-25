@@ -5,24 +5,8 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer
-      className="relative border-t border-purple-500/15 mt-auto"
-      style={{
-        background: "rgba(21, 0, 48, 0.85)",
-        backdropFilter: "blur(24px)",
-        WebkitBackdropFilter: "blur(24px)",
-      }}
-    >
-      {/* Top shimmer line */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 0%, rgba(192,132,252,0.5) 30%, rgba(147,51,234,0.8) 50%, rgba(192,132,252,0.5) 70%, transparent 100%)",
-        }}
-      />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="relative border-t border-slate-800 mt-auto bg-slate-950">
+      <div className="max-w-6xl mx-auto px-6 py-12">
 
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -30,36 +14,27 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-600 to-fuchsia-500 flex items-center justify-center shadow-[0_4px_16px_rgba(147,51,234,0.45)]">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2L2 7l10 5 10-5-10-5z" />
+              <div className="w-8 h-8 rounded-lg bg-indigo-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
               </div>
-              <span
-                className="text-xl font-bold text-white tracking-tight"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Aura<span className="text-purple-400">X</span>
-              </span>
+              <span className="text-white font-bold text-sm tracking-tight">Assessment Builder</span>
             </div>
-
-            <p className="text-sm text-purple-200/60 leading-relaxed max-w-xs">
-              Crafted with precision and elegance. Building modern digital
-              experiences with a refined violet aesthetic.
+            <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
+              A complete platform for educators — create exams, auto-grade submissions, and track every student's performance.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-4 tracking-wide">
-              Navigation
-            </h3>
+            <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">Navigation</h3>
             <ul className="space-y-2">
               {links.map((link) => (
                 <li key={link}>
                   <a
                     href={`/${link.toLowerCase()}`}
-                    className="text-sm text-purple-200/60 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                    className="text-sm text-slate-500 hover:text-white transition-all duration-200 inline-block hover:translate-x-1"
                   >
                     {link}
                   </a>
@@ -68,18 +43,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social / Contact */}
+          {/* Connect */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-4 tracking-wide">
-              Connect
-            </h3>
-
-            <div className="flex gap-3">
+            <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">Connect</h3>
+            <div className="flex flex-wrap gap-2">
               {["Twitter", "GitHub", "LinkedIn"].map((item) => (
                 <a
                   key={item}
                   href="#"
-                  className="px-4 py-2 rounded-xl text-xs font-medium text-purple-200/70 bg-purple-500/5 border border-purple-500/15 hover:text-white hover:bg-purple-500/10 hover:border-purple-500/30 transition-all duration-200"
+                  className="px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 hover:text-white hover:border-slate-600 hover:bg-slate-700 transition-all duration-150"
                 >
                   {item}
                 </a>
@@ -89,26 +61,17 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="mt-10 mb-6 h-px bg-purple-500/15" />
+        <div className="mt-10 mb-6 h-px bg-slate-800" />
 
         {/* Bottom */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-purple-300/50">
-          <p>© {year} AuraX. All rights reserved.</p>
-
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-slate-600">© {year} Assessment Builder. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Terms of Service
-            </a>
+            <a href="#" className="text-xs text-slate-600 hover:text-slate-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="text-xs text-slate-600 hover:text-slate-400 transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap');
-      `}</style>
     </footer>
   );
 }
