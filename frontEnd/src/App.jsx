@@ -59,15 +59,20 @@ function App() {
 
   if (isCheckingAuth) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#150030]">
-        <div className="text-center">
-          <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-purple-300">Loading...</p>
+      <div
+        className="min-h-screen flex items-center justify-center bg-slate-950"
+        style={{
+          backgroundImage:
+            "radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(16,185,129,0.06) 0%, transparent 50%)",
+        }}
+      >
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-10 h-10 rounded-full border-2 border-indigo-500 border-t-transparent animate-spin" />
+          <p className="text-slate-400 text-sm">Loading...</p>
         </div>
       </div>
     );
   }
-
   return (
     <Router>
       <AppRoutes />
