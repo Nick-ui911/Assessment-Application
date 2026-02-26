@@ -37,7 +37,7 @@ export default function TakeAssessment() {
       const existing = prev.find((a) => a.questionId === questionId);
       if (existing) {
         return prev.map((a) =>
-          a.questionId === questionId ? { ...a, selectedAnswer } : a
+          a.questionId === questionId ? { ...a, selectedAnswer } : a,
         );
       }
       return [...prev, { questionId, selectedAnswer }];
@@ -63,7 +63,10 @@ export default function TakeAssessment() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950" style={bgStyle}>
+      <div
+        className="min-h-screen flex items-center justify-center bg-slate-950"
+        style={bgStyle}
+      >
         <div className="flex flex-col items-center gap-4">
           <div className="w-10 h-10 rounded-full border-2 border-indigo-500 border-t-transparent animate-spin" />
           <p className="text-slate-400 text-sm">Loading assessment...</p>
@@ -74,15 +77,30 @@ export default function TakeAssessment() {
 
   if (!assessment) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950" style={bgStyle}>
+      <div
+        className="min-h-screen flex items-center justify-center bg-slate-950"
+        style={bgStyle}
+      >
         <div className="text-center">
           <div className="w-14 h-14 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center mx-auto mb-4">
-            <svg className="w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <svg
+              className="w-6 h-6 text-slate-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
           </div>
           <p className="text-slate-300 font-semibold">Assessment not found</p>
-          <p className="text-slate-500 text-sm mt-1">This assessment may have been removed.</p>
+          <p className="text-slate-500 text-sm mt-1">
+            This assessment may have been removed.
+          </p>
         </div>
       </div>
     );
@@ -93,30 +111,61 @@ export default function TakeAssessment() {
     const passed = parseFloat(pct) >= 50;
 
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950 p-6" style={bgStyle}>
+      <div
+        className="min-h-screen flex items-center justify-center bg-slate-950 p-6"
+        style={bgStyle}
+      >
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-10 text-center w-full max-w-md">
-          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 ${passed ? "bg-emerald-500/10 border border-emerald-500/20" : "bg-red-500/10 border border-red-500/20"}`}>
+          <div
+            className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 ${passed ? "bg-emerald-500/10 border border-emerald-500/20" : "bg-red-500/10 border border-red-500/20"}`}
+          >
             {passed ? (
-              <svg className="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <svg
+                className="w-7 h-7 text-emerald-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
             ) : (
-              <svg className="w-7 h-7 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <svg
+                className="w-7 h-7 text-red-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
             )}
           </div>
-          <h2 className="text-2xl font-bold text-white mb-1">Assessment Completed</h2>
+          <h2 className="text-2xl font-bold text-white mb-1">
+            Assessment Completed
+          </h2>
           <p className="text-slate-400 text-sm mb-8">Here's how you did</p>
           <div className="bg-slate-800 border border-slate-700 rounded-xl p-5 space-y-3 text-left mb-6">
             <div className="flex justify-between items-center">
               <span className="text-slate-400 text-sm">Total Questions</span>
-              <span className="text-white font-medium">{result.totalQuestions}</span>
+              <span className="text-white font-medium">
+                {result.totalQuestions}
+              </span>
             </div>
             <div className="w-full h-px bg-slate-700" />
             <div className="flex justify-between items-center">
               <span className="text-slate-400 text-sm">Total Marks</span>
-              <span className="text-white font-medium">{result.totalMarks}</span>
+              <span className="text-white font-medium">
+                {result.totalMarks}
+              </span>
             </div>
             <div className="w-full h-px bg-slate-700" />
             <div className="flex justify-between items-center">
@@ -126,7 +175,11 @@ export default function TakeAssessment() {
             <div className="w-full h-px bg-slate-700" />
             <div className="flex justify-between items-center">
               <span className="text-slate-400 text-sm">Percentage</span>
-              <span className={`font-bold text-lg ${passed ? "text-emerald-400" : "text-red-400"}`}>{pct}%</span>
+              <span
+                className={`font-bold text-lg ${passed ? "text-emerald-400" : "text-red-400"}`}
+              >
+                {pct}%
+              </span>
             </div>
           </div>
           <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
@@ -135,8 +188,12 @@ export default function TakeAssessment() {
               style={{ width: `${Math.min(parseFloat(pct), 100)}%` }}
             />
           </div>
-          <p className={`text-xs mt-2 font-medium ${passed ? "text-emerald-400" : "text-red-400"}`}>
-            {passed ? "Well done! You passed." : "Keep practicing — you'll get there!"}
+          <p
+            className={`text-xs mt-2 font-medium ${passed ? "text-emerald-400" : "text-red-400"}`}
+          >
+            {passed
+              ? "Well done! You passed."
+              : "Keep practicing — you'll get there!"}
           </p>
         </div>
       </div>
@@ -161,17 +218,28 @@ export default function TakeAssessment() {
 
   return (
     <div className="min-h-screen bg-slate-950" style={bgStyle}>
-
       {/* Sticky top bar */}
       <div className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-2xl mx-auto px-6 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 min-w-0">
             <div className="w-7 h-7 rounded-lg bg-indigo-500 flex items-center justify-center flex-shrink-0">
-              <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              <svg
+                className="w-3.5 h-3.5 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                />
               </svg>
             </div>
-            <span className="text-white font-semibold text-sm truncate">{assessment.title}</span>
+            <span className="text-white font-semibold text-sm truncate">
+              {assessment.title}
+            </span>
           </div>
 
           <div className="flex items-center gap-3 flex-shrink-0">
@@ -179,18 +247,32 @@ export default function TakeAssessment() {
               <div className="w-20 bg-slate-800 rounded-full h-1.5 overflow-hidden">
                 <div
                   className="h-1.5 bg-indigo-500 rounded-full transition-all duration-300"
-                  style={{ width: `${totalCount > 0 ? (answeredCount / totalCount) * 100 : 0}%` }}
+                  style={{
+                    width: `${totalCount > 0 ? (answeredCount / totalCount) * 100 : 0}%`,
+                  }}
                 />
               </div>
-              <span className="text-slate-400 text-xs font-medium whitespace-nowrap">{answeredCount}/{totalCount}</span>
+              <span className="text-slate-400 text-xs font-medium whitespace-nowrap">
+                {answeredCount}/{totalCount}
+              </span>
             </div>
 
             <button
               onClick={() => setPanelOpen(true)}
               className="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 px-3 py-1.5 rounded-xl text-xs font-medium transition-all"
             >
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                className="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
               <span className="hidden sm:inline">Navigator</span>
             </button>
@@ -200,16 +282,26 @@ export default function TakeAssessment() {
 
       {/* Question area */}
       <div className="max-w-2xl mx-auto px-6 py-10">
-
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-5">
           <div className="flex items-center justify-between mb-5">
             <span className="text-xs font-semibold text-slate-500 uppercase tracking-widest">
-              Question {current + 1} <span className="text-slate-700">/ {totalCount}</span>
+              Question {current + 1}{" "}
+              <span className="text-slate-700">/ {totalCount}</span>
             </span>
             {currentAnswered ? (
               <span className="flex items-center gap-1 text-xs text-emerald-400 font-medium bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-3 h-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
                 Answered
               </span>
@@ -220,33 +312,47 @@ export default function TakeAssessment() {
             )}
           </div>
 
-          <h4 className="text-white font-medium text-base leading-relaxed mb-6">{q.questionText}</h4>
+          <h4 className="text-white font-medium text-base leading-relaxed mb-6">
+            {q.questionText}
+          </h4>
 
           <div className="space-y-2.5">
             {q.options.map((opt, i) => {
               const selected = answers.find(
-                (a) => a.questionId === q._id && a.selectedAnswer === opt
+                (a) => a.questionId === q._id && a.selectedAnswer === opt,
               );
+
               return (
                 <label
-                  key={i}
+                  key={`${q._id}-${opt}`}
                   className={`flex items-center gap-3 cursor-pointer p-3.5 rounded-xl border transition-all duration-150
-                    ${selected
-                      ? "bg-indigo-500/10 border-indigo-500/40 text-indigo-300"
-                      : "bg-slate-800/50 border-slate-700 text-slate-300 hover:border-slate-600 hover:bg-slate-800"
-                    }`}
+          ${
+            selected
+              ? "bg-indigo-500/10 border-indigo-500/40 text-indigo-300"
+              : "bg-slate-800/50 border-slate-700 text-slate-300 hover:border-slate-600 hover:bg-slate-800"
+          }`}
                 >
                   <input
                     type="radio"
                     name={q._id}
                     value={opt}
+                    checked={!!selected}
                     onChange={() => handleSelect(q._id, opt)}
                     className="sr-only"
                   />
-                  <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${selected ? "border-indigo-400 bg-indigo-400" : "border-slate-600"}`}>
-                    {selected && <span className="w-1.5 h-1.5 rounded-full bg-white" />}
+
+                  <span
+                    className={`w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${selected ? "border-indigo-400 bg-indigo-400" : "border-slate-600"}`}
+                  >
+                    {selected && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                    )}
                   </span>
-                  <span className="text-xs font-bold text-slate-500 w-4">{String.fromCharCode(65 + i)}.</span>
+
+                  <span className="text-xs font-bold text-slate-500 w-4">
+                    {String.fromCharCode(65 + i)}.
+                  </span>
+
                   <span className="text-sm">{opt}</span>
                 </label>
               );
@@ -261,8 +367,18 @@ export default function TakeAssessment() {
             disabled={current === 0}
             className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 disabled:opacity-30 disabled:cursor-not-allowed text-slate-300 px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
             Previous
           </button>
@@ -275,8 +391,18 @@ export default function TakeAssessment() {
               className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-800 disabled:border disabled:border-slate-700 disabled:text-slate-500 disabled:cursor-not-allowed text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-150 shadow-lg shadow-indigo-500/20 disabled:shadow-none"
             >
               Next
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           ) : (
@@ -292,10 +418,22 @@ export default function TakeAssessment() {
                 </>
               ) : (
                 <>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
-                  {allAnswered ? "Submit Assessment" : `Answer all to submit (${answeredCount}/${totalCount})`}
+                  {allAnswered
+                    ? "Submit Assessment"
+                    : `Answer all to submit (${answeredCount}/${totalCount})`}
                 </>
               )}
             </button>
@@ -321,15 +459,29 @@ export default function TakeAssessment() {
             {/* Header */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-slate-800">
               <div>
-                <h3 className="text-white font-semibold text-sm">Question Navigator</h3>
-                <p className="text-slate-500 text-xs mt-0.5">{answeredCount} of {totalCount} answered</p>
+                <h3 className="text-white font-semibold text-sm">
+                  Question Navigator
+                </h3>
+                <p className="text-slate-500 text-xs mt-0.5">
+                  {answeredCount} of {totalCount} answered
+                </p>
               </div>
               <button
                 onClick={() => setPanelOpen(false)}
                 className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-all"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
@@ -340,7 +492,10 @@ export default function TakeAssessment() {
                 { cls: "bg-indigo-500", label: "Current" },
                 { cls: "bg-emerald-500", label: "Answered" },
                 { cls: "bg-slate-600", label: "Visited" },
-                { cls: "bg-slate-800 border border-slate-700", label: "Not visited" },
+                {
+                  cls: "bg-slate-800 border border-slate-700",
+                  label: "Not visited",
+                },
               ].map(({ cls, label }) => (
                 <div key={label} className="flex items-center gap-1.5">
                   <span className={`w-3 h-3 rounded-sm flex-shrink-0 ${cls}`} />
@@ -354,13 +509,20 @@ export default function TakeAssessment() {
               <div className="grid grid-cols-5 gap-2">
                 {questions.map((_, i) => {
                   const status = getQuestionStatus(i);
-                  const canJump = status === "answered" || status === "active" || status === "visited";
+                  const canJump =
+                    status === "answered" ||
+                    status === "active" ||
+                    status === "visited";
 
                   const styleMap = {
-                    active: "bg-indigo-500 text-white border-indigo-400 shadow-md shadow-indigo-500/30 scale-110",
-                    answered: "bg-emerald-500/20 text-emerald-400 border-emerald-500/40 hover:bg-emerald-500/30",
-                    visited: "bg-slate-700 text-slate-300 border-slate-600 hover:bg-slate-600",
-                    unseen: "bg-slate-800 text-slate-600 border-slate-700 opacity-60 cursor-not-allowed",
+                    active:
+                      "bg-indigo-500 text-white border-indigo-400 shadow-md shadow-indigo-500/30 scale-110",
+                    answered:
+                      "bg-emerald-500/20 text-emerald-400 border-emerald-500/40 hover:bg-emerald-500/30",
+                    visited:
+                      "bg-slate-700 text-slate-300 border-slate-600 hover:bg-slate-600",
+                    unseen:
+                      "bg-slate-800 text-slate-600 border-slate-700 opacity-60 cursor-not-allowed",
                   };
 
                   return (
@@ -376,8 +538,18 @@ export default function TakeAssessment() {
                       className={`aspect-square rounded-xl border text-xs font-bold flex items-center justify-center transition-all duration-150 ${styleMap[status]}`}
                     >
                       {status === "answered" ? (
-                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        <svg
+                          className="w-3 h-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            d="M5 13l4 4L19 7"
+                          />
                         </svg>
                       ) : (
                         i + 1
@@ -393,11 +565,15 @@ export default function TakeAssessment() {
               <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden mb-2">
                 <div
                   className="h-1.5 bg-indigo-500 rounded-full transition-all duration-500"
-                  style={{ width: `${totalCount > 0 ? (answeredCount / totalCount) * 100 : 0}%` }}
+                  style={{
+                    width: `${totalCount > 0 ? (answeredCount / totalCount) * 100 : 0}%`,
+                  }}
                 />
               </div>
               <p className="text-slate-500 text-xs text-center">
-                {totalCount - answeredCount === 0 ? "All questions answered!" : `${totalCount - answeredCount} remaining`}
+                {totalCount - answeredCount === 0
+                  ? "All questions answered!"
+                  : `${totalCount - answeredCount} remaining`}
               </p>
             </div>
           </div>

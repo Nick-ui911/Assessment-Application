@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 export default function LandingPage() {
   const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
 
   useEffect(() => {
     setTimeout(() => setMounted(true), 50);
